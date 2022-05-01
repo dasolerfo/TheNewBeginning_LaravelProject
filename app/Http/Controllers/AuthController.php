@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Game;
+
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,6 +29,7 @@ class AuthController extends Controller
     public function edita(int $id)
     {
         $user = User::findOrFail($id);
+        $user->game;
         return view('edit',compact('user'));
 
     }
@@ -34,18 +37,18 @@ class AuthController extends Controller
 
     public function update(Request $request, int $id)
     {
-
         $attr = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email',
-            'pais' => 'required'
+            'pais' => 'required',
+            'puntuacio' => 'required|integer|min:0'
         ]);
 
         $user = User::findOrFail($id);
         $user->name = $attr['name'];
         $user->email = $attr['email'];
         $user->pais = $attr['pais'];
-
+        $user->game->puntuacio = $attr['puntuacio'];//TODO: Guillem
         $user->save();
         return redirect()->route('admin');
     }
@@ -65,9 +68,12 @@ class AuthController extends Controller
                 'email' => $attr['email'],
                 'pais'=> $attr['pais'],
                 'admin' => true
+                
             ]);
     
         }else{
+            $game = Game::create(['puntuacio' => 0]);
+
             $user = User::create([
                 'name' => $attr['name'],
                 'password' => bcrypt($attr['password']),
@@ -75,6 +81,8 @@ class AuthController extends Controller
                 'pais'=> $attr['pais'],
                 'admin' => false
             ]);
+            $user->gameId = $game->id;
+            $user->save();
         }
         if (!Auth::attempt($attr)) {
             return redirect("index")->withSuccess('Ops! Nono');

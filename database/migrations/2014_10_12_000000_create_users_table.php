@@ -21,7 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('pais');
             $table->boolean('admin');
+            $table->unsignedBigInteger('gameId')->nullable();
             $table->rememberToken();
+            $table->foreign('gameId')->references('id')->on('games');
             //$table->timestamps();
         });
     }
