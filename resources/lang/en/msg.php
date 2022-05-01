@@ -7,6 +7,25 @@ return [
     'trailer' => 'Trailer',
     'actualitzacions' => 'Updates',
 
+    'login' => 'Sign Up',
+    'registra' => 'Regist',
+    'surt' => 'Logout',
+    'tanca' => 'Close',
+    'torna'=> 'Back',
+
+    'usuaris' => 'Users',
+    'nom'=> 'First Name',
+    'cognom'=>'Last Name',
+    'correu'=>'Email',
+    'contrasenya' => 'Password',
+    'contrasenya2' => 'Confirm Password',
+    'pais' => 'Country',
+    'detalls' => 'Details',
+    'ensenyarDetalls' => 'Show Details',
+    'elimina' => 'Delete',
+
+
+
     'benimladris' => 'Welcome to Imladirs',
     'f1' => "RPG 2D Fantasy Game where the story of a boy with a secret power that he doesn't know passes, will you manage to find out what he is?",
     

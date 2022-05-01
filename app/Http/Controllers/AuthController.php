@@ -13,22 +13,74 @@ class AuthController extends Controller
 {
     use ApiResponser;
 
-    
+    public function index()
+    {
+        $users = User::all();
+        return view('admin2', compact('users'));
+
+    }
+    public function torna()
+    {
+        return view('index');
+
+    }
+    public function edita(int $id)
+    {
+        $user = User::findOrFail($id);
+        return view('edit',compact('user'));
+
+    }
+
+
+    public function update(Request $request, int $id)
+    {
+
+        $attr = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email',
+            'pais' => 'required'
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->name = $attr['name'];
+        $user->email = $attr['email'];
+        $user->pais = $attr['pais'];
+
+        $user->save();
+        return redirect()->route('admin');
+    }
+
     public function register(Request $request)
     {
         $attr = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
+            'pais' => 'required'
         ]);
-
-        $user = User::create([
-            'name' => $attr['name'],
-            'password' => bcrypt($attr['password']),
-            'email' => $attr['email']
-        ]);
-
+        if($attr['name'] == 'admin' && $attr['email']== 'admin@admin.cat' ){
+            $user = User::create([
+                'name' => $attr['name'],
+                'password' => bcrypt($attr['password']),
+                'email' => $attr['email'],
+                'pais'=> $attr['pais'],
+                'admin' => true
+            ]);
+    
+        }else{
+            $user = User::create([
+                'name' => $attr['name'],
+                'password' => bcrypt($attr['password']),
+                'email' => $attr['email'],
+                'pais'=> $attr['pais'],
+                'admin' => false
+            ]);
+        }
+        if (!Auth::attempt($attr)) {
+            return redirect("index")->withSuccess('Ops! Nono');
+        }
         return redirect("index");
+        
     }
 
     public function login(Request $request)
@@ -40,9 +92,10 @@ class AuthController extends Controller
 
         if (!Auth::attempt($attr)) {
             return redirect("index")->withSuccess('Ops! Nono');
-
         }
-        return redirect("index")->withSuccess('Great! You have Successfully loggedin');
+        
+        return redirect("index");
+        
     }
 
     public function logout()
@@ -51,5 +104,11 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
         return redirect("index");
+    }
+
+    public function destroy(int $id){
+        $aux = User::findOrFail($id);
+        
+        return redirect('admin');
     }
 }

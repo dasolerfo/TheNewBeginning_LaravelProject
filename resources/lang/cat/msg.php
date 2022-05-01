@@ -7,6 +7,25 @@ return[
     'trailer' => 'Trailer',
     'actualitzacions' => 'Actualitzacions',
 
+    'login' => 'Entra',
+    'registra' => 'Registrat',
+    'surt' => 'Surt',
+    'tanca' => 'Tancar',
+    'torna'=> 'Tornar',
+
+    'usuaris' => 'Usuaris',
+
+    'nom'=> 'Nom',
+    'cognom'=>'Cognom',
+    'correu'=>'Correu Electrònic',
+    'contrasenya' => 'Contrasenya',
+    'contrasenya2' => 'Confirma Contrasenya',
+    'pais' => 'País',
+    'detalls' => 'Detalls',
+    'ensenyarDetalls' => 'Mostra Detalls',
+    'elimina' => 'Eliminar',
+
+
     'benimladris' => 'Benvingut a Imladirs',
     'f1' => "Joc de Fantasia RPG 2D on transcorre la història d'un noi amb un poder secret que ni ell mateix coneix, aconseguiràs descobrir quin és?",
     
