@@ -50,8 +50,4 @@ class AuthControllerAPI extends Controller
         ];
     }
 
-    public function retornaGame(){
-        $users = User::all();
-        dd($users[1]->all()->game);
-    }
 }
