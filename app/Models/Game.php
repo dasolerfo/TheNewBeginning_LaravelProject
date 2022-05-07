@@ -15,5 +15,8 @@ class Game extends Model
 
     protected $fillable = ['puntuacio'];
 
-   
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class,'id','gameId');
+    // }
 }

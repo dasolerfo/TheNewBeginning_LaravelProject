@@ -58,6 +58,8 @@
                                 href="#superhero">{{ __('msg.trailer') }}</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page"
                                 href="#marketing">{{ __('msg.actualitzacions') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page"
+                            href="{{ route('ranking') }}">RANKING</a></li>
                     </ul>
                     @guest
                         <div class="d-flex ms-lg-4"><button class="btn btn-warning"
@@ -68,10 +70,11 @@
                         @if (Auth::user()->admin == 1)
                             <div class="d-flex ms-lg-4"> <a class="btn btn-warning" href="{{ route('admin') }}">Panel
                                     Control</a></div>
-                            {{-- {{ view('admin')}} --}}
+                        @else
+                            <div class="d-flex ms-lg-4"> <a class="btn btn-warning" href="{{ route('user') }}">Perfil</a></div>
                         @endif
                         <div class="d-flex ms-lg-4"> <a class="btn btn-warning"
-                                href="{{ route('logout') }}">{{ __('msg.surt') }}</a></div>
+                                href="{{ route('logout.post') }}">{{ __('msg.surt') }}</a></div>
                     @endguest
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" aria-current="page"
@@ -82,11 +85,7 @@
                 </div>
             </div>
         </nav>
-        @if (session('success'))
-            <div class="alert alert-danger container" role="alert">
-                {{ session('success') }}
-            </div>
-        @endif
+        
 
         <div class="form-popup" id="myForm">
             <form action="{{ route('login.post') }}" method="POST" id="footer-form" class="form-container">
@@ -126,8 +125,8 @@
                         <span class="text-danger">{{ $errors->first('name') }}</span>
                     @endif
                     <div class="">
-                        <input type="text" class="form-control" name="last_name" id="last_name"
-                            placeholder="{{ __('msg.cognom') }} *" required>
+                        <input type="text" class="form-control" name="userName" id="userName"
+                            placeholder="{{ __('msg.userName') }} *" required>
                     </div>
                 </div>
                 <div class="row">
@@ -163,6 +162,11 @@
                 <button type="button" class="btn cancel" onclick="closeFormRegist()">{{ __('msg.tanca') }}</button>
             </form>
         </div>
+        @if (session('success'))
+            <div class="alert alert-danger container" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
         <!-- ===============================================-->
         <!--    Main Content-->
         <!-- ===============================================-->

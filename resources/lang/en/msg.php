@@ -15,7 +15,7 @@ return [
 
     'usuaris' => 'Users',
     'nom'=> 'First Name',
-    'cognom'=>'Last Name',
+    'userName'=>'User Name',
     'correu'=>'Email',
     'contrasenya' => 'Password',
     'contrasenya2' => 'Confirm Password',

@@ -42,15 +42,17 @@
             <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <div class="d-flex ms-lg-4"> <a class="btn btn-warning"
-                            href="{{ route('index') }}">{{ __('msg.torna') }}</a></div>
+                            href="{{ route('torna') }}">{{ __('msg.torna') }}</a></div>
 
-                    <div class="d-flex ms-lg-4"> <a class="btn btn-warning"
-                            href="{{ route('logout') }}">{{ __('msg.surt') }}</a></div>
+                    <div class="d-flex ms-lg-4"> 
+                        <a class="btn btn-warning"
+                            href="{{ route('logout.post') }}">{{ __('msg.surt') }}</a>
+                        </div>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                                href="http://127.0.0.1:8000/admin">EN</a></li>
+                                href="http://127.0.0.1:8000/en/">EN</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                                href="http://127.0.0.1:8000/admin">CAT</a></li>
+                                href="http://127.0.0.1:8000/cat/">CAT</a></li>
                     </ul>
             </div>
         </div>

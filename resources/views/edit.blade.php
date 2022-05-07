@@ -1,15 +1,17 @@
 @extends('layout')
 
 @section('content')
-    <div class="pull-right">
-        <a class="btn btn-primary" href="{{ route('admin') }}"> Back</a>
-    </div>
+    
     <div class="row">
         <form action="{{ route('aaaaa',$user->id) }}" method="POST" class="container">
             @csrf
             <div class="form-group">
                 <strong class="text-secondary">Name:</strong>
                 <input type="text" class="form-control" name="name" value="{{ $user->name }}" id="name">
+            </div>
+            <div class="form-group">
+                <strong class="text-secondary">User Name:</strong>
+                <input type="text" class="form-control" name="userName" value="{{ $user->userName }}" id="userName">
             </div>
             <div class="form-group">
                 <strong class="text-secondary">Email:</strong>
@@ -26,14 +28,29 @@
                 {{-- <input type="text" class="form-control" name="pais" id="pais"
             value="{{ $user->pais }}"> --}}
             </div>
+            
             <div class="form-group">
                 <strong class="text-secondary">Puntuació:</strong>
-                <input type="text" class="form-control" name="puntuacio" id="puntuacio" value="{{ $user->game->puntuacio }}">
+                @if (Auth::user()->admin == 1)
+                    <input type="text" class="form-control" name="puntuacio" id="puntuacio" value="{{ $user->game->puntuacio }}">
+                @else
+                    <p class="form-control" name="puntuacio" id="puntuacio">{{ $user->game->puntuacio }}</p>
+                @endif
             </div>
             <br>
-            <div class="col-xs-12 col-sm-12 col-md-12 ">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
+
+            <div class="row">
+                @if((Auth::user()->admin == 1))
+                    <div class="col-2">
+                        <a class="btn btn-primary" href="{{ route('admin') }}"> Back</a>
+                    </div>
+                @endif
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            
+              
         </form>
     </div>
 @endsection

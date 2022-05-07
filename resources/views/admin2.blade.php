@@ -7,6 +7,7 @@
             <thead>
                 <tr class="text-secondary">
                     <th>{{ __('msg.nom') }}</th>
+                    <th>{{ __('msg.userName') }}</th>
                     <th>{{ __('msg.correu') }}</th>
                     <th>{{ __('msg.pais') }}</th>
                     <th>{{ __('msg.detalls') }}/Edit</th>
@@ -18,6 +19,8 @@
                     @if($user->admin == 0)
                         <tr class="text-secondary">
                             <td>{{ $user->name }}</td>
+                            <td>{{ $user->userName }}</td>
+
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->pais }}</td>
                             <td><a href="{{ route('edita',$user->id) }}" class="btn btn-warning">{{ __('msg.ensenyarDetalls')}}</a></td>

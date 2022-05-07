@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Game;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','pais','admin'
+        'name', 'userName','email', 'password','pais','admin'
     ];
     public $timestamps = false;
 
@@ -42,7 +43,7 @@ class User extends Authenticatable
 
     public function game()
     {
-        return $this->belongsTo(Game::class,'gameId','id');
+        return $this->hasOne(Game::class,'id','gameId');
     }
 
 }
