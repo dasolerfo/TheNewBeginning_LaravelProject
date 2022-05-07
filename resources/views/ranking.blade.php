@@ -6,18 +6,20 @@
     <table class="table table-bordered">
         <thead>
             <tr class="text-secondary">
+                <th>Posició</th>
                 <th>{{ __('msg.userName') }}</th>
                 <th>PUNTUACIÓ</th>
 
             </tr>
         </thead>
         <tbody>
-            @foreach ($users as $key => $user)
+            @for ($i = 0; $i < count($users); $i++)
                 <tr class="text-secondary">
-                    <td>{{ $user->userName }}</td>
-                {{-- <td>{{ $user->game->puntuacio }}</td> --}}
+                    <td>{{ ($i + 1) }}</td> 
+                    <td>{{ $users[$i]->userName }}</td>
+                    <td>{{ $users[$i]->puntuacio }}</td>
                 </tr>
-            @endforeach
+            @endfor
             </tbody>
         </table>
     </div>

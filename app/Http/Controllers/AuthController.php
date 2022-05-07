@@ -127,7 +127,7 @@ class AuthController extends Controller
     public function ranking(){
         $users = \DB::table('users')
             ->join('games','users.gameId','=','games.id')
-            ->select('users.*','games.puntuacio')
+            ->select('users.*','games.puntuacio as puntuacio')
             ->orderBy('games.puntuacio','desc')
             ->get();
         

@@ -19,6 +19,8 @@ use App\Http\Controllers\AuthController;
 // Route::post('/auth/register', [AuthController::class, 'register']);
 Route::post('/rank', [AuthController::class, 'ranking']);
 
+Route::get('/game', [AuthControllerAPI::class, 'retornaGame']);
+
 Route::post('/login', [AuthControllerAPI::class, 'loginAPI']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {

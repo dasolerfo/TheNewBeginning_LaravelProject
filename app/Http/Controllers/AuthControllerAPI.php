@@ -49,4 +49,9 @@ class AuthControllerAPI extends Controller
             'message' => 'Tokens Revoked'
         ];
     }
+
+    public function retornaGame(){
+        $users = User::all();
+        dd($users[1]->all()->game);
+    }
 }
