@@ -34,7 +34,7 @@
                 @if (Auth::user()->admin == 1)
                     <input type="text" class="form-control" name="puntuacio" id="puntuacio" value="{{ $user->game->puntuacio }}">
                 @else
-                    <p class="form-control" name="puntuacio" id="puntuacio">{{ $user->game->puntuacio }}</p>
+                    <input type="text" class="form-control" name="puntuacio" id="puntuacio" value="{{ $user->game->puntuacio }}" readonly>
                 @endif
             </div>
             <br>

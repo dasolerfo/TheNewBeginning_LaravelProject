@@ -44,8 +44,7 @@ class User extends Authenticatable
 
     public function game()
     {
-        //No funciona :)
-        return $this->hasOne(Game::class, 'gameId', 'id')->get();
+        return $this->hasOne(Game::class, 'id', 'gameId');
     }
 
 }
