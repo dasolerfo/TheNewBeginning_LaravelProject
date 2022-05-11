@@ -36,7 +36,6 @@ class AuthControllerAPI extends Controller
         ]);
     }
     public function puntuacio(Request $request, int $puntuacio){
-        //dd(Auth::user()->game->puntuacio);
         $game  = Auth::user()->game;
         $game->puntuacio += $puntuacio;
         $game->save();

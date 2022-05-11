@@ -85,7 +85,7 @@
                 </div>
             </div>
         </nav>
-        
+        <div class="tancar" id="tancar" onclick="closeAll()"></div>
 
         <div class="form-popup" id="myForm">
             <form action="{{ route('login.post') }}" method="POST" id="footer-form" class="form-container">
@@ -509,19 +509,30 @@
         function openFormSingUp() {
             document.getElementById("myFormRegist").style.display = "none";
             document.getElementById("myForm").style.display = "block";
+            document.getElementById("tancar").style.display = "block";
         }
 
         function openFormRegist() {
             document.getElementById("myForm").style.display = "none";
             document.getElementById("myFormRegist").style.display = "block";
+            document.getElementById("tancar").style.display = "block";
+
         }
 
         function closeForm() {
             document.getElementById("myForm").style.display = "none";
+            document.getElementById("tancar").style.display = "none";
+
         }
 
         function closeFormRegist() {
             document.getElementById("myFormRegist").style.display = "none";
+            document.getElementById("tancar").style.display = "none";
+        }
+        function closeAll(){
+            document.getElementById("myForm").style.display = "none";
+            document.getElementById("myFormRegist").style.display = "none";
+            document.getElementById("tancar").style.display = "none";
         }
     </script>
     <script src="vendors/@popperjs/popper.min.js"></script>

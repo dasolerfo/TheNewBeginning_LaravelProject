@@ -32,7 +32,6 @@ class AuthController extends Controller
         
 
     }
-    //getPerfil
     public function getPerfil(){
         $user = User::findOrFail(Auth::user()->id);
         $user->game;

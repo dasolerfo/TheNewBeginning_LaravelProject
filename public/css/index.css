@@ -1,7 +1,16 @@
 *{box-sizing: border-box;}
 
 /* Button used to open the contact form - fixed at the bottom of the page */
-
+.tancar{
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: black;
+  opacity: 0.7;
+  position: fixed;
+  top:0;
+}
 
 /* The popup form - hidden by default */
 .form-popup {
@@ -9,7 +18,8 @@
   position: fixed;
   left: 37%;
   border: 3px solid #f1f1f1;
-  z-index: 9;
+  z-index: 10;
+
 }
 
 /* Add styles to the form container */
@@ -17,6 +27,8 @@
   max-width: 350px;
   padding: 20px;
   background-color: white;
+  z-index: 10;
+
 }
 
 /* Full-width input fields */
@@ -55,3 +67,23 @@
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+.taulaRanking{
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  border-spacing: 0 0;
+  background: rgb(75, 85, 226);
+  color: white;
+  box-shadow: 0 0 20px #1E3344;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+}
+.taulaRanking > thead{
+  background: rgb(10, 10, 100);
+
+}
+
+tr:nth-child(even) {background-color: rgb(42, 50, 158)}
+
+  
