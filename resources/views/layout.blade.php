@@ -45,12 +45,12 @@
                             href="{{ route('torna') }}">{{ __('msg.torna') }}</a></div>
 
                     
-                    <ul class="navbar-nav ms-auto">
+                    {{-- <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                                href="http://127.0.0.1:8000/en/">EN</a></li>
+                                href="/en">EN</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                                href="http://127.0.0.1:8000/cat/">CAT</a></li>
-                    </ul>
+                                href="/cat">CAT</a></li>
+                    </ul> --}}
             </div>
         </div>
     </nav>

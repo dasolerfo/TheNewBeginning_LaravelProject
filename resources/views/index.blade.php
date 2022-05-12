@@ -51,15 +51,15 @@
                             </li>
                         @endauth
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                                href="#feature">{{ __('msg.joc') }}</a></li>
+                                href="#feature" style="color: #fcbf49">{{ __('msg.joc') }}</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                                href="#validation">{{ __('msg.informacio') }}</a></li>
+                                href="#validation" style="color: #fcbf49">{{ __('msg.informacio') }}</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                                href="#superhero">{{ __('msg.trailer') }}</a></li>
+                                href="#superhero" style="color: #fcbf49">{{ __('msg.trailer') }}</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                                href="#marketing">{{ __('msg.actualitzacions') }}</a></li>
+                                href="#marketing" style="color: #fcbf49">{{ __('msg.actualitzacions') }}</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                            href="{{ route('ranking') }}">RANKING</a></li>
+                            href="{{ route('ranking') }}" style="color: #fcbf49">RANKING</a></li>
                     </ul>
                     @guest
                         <div class="d-flex ms-lg-4"><button class="btn btn-warning"
@@ -78,9 +78,9 @@
                     @endguest
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                                href="http://127.0.0.1:8000/en">EN</a></li>
+                                href="/en" style="color: #fcbf49">EN</a></li>
                         <li class="nav-item"><a class="nav-link" aria-current="page"
-                                href="http://127.0.0.1:8000/cat">CAT</a></li>
+                                href="/cat" style="color: #fcbf49">CAT</a></li>
                     </ul>
                 </div>
             </div>
