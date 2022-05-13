@@ -4,8 +4,7 @@ return [
 
     'joc' => 'Game',
     'informacio' => 'Information',
-    'trailer' => 'Trailer',
-    'actualitzacions' => 'Updates',
+    'trailer' => 'Comença',
 
     'login' => 'Sign Up',
     'registra' => 'Regist',
